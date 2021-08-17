@@ -38,6 +38,7 @@ export default function SmallWithSocial() {
     <Box
       bg={useColorModeValue("white", "white")}
       color={useColorModeValue("primary.900", "primary.900")}
+      mt="2rem"
     >
       <Container
         as={Stack}
