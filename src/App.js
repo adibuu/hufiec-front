@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import LandingLayout from "./components/layouts/LandingLayout";
+import Layout from "./hoc/Layout";
 import Hero from "./components/sections/Hero";
 
 export default function App() {
   return (
-    <LandingLayout>
+    <Layout>
       <BrowserRouter>
         <Switch>
           <Route path="/">
@@ -14,6 +14,6 @@ export default function App() {
           </Route>
         </Switch>
       </BrowserRouter>
-    </LandingLayout>
+    </Layout>
   );
 }
