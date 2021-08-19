@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Box, Flex, Text, Stack } from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 
-import Logo from "../ux/Logo";
+import Logo from "../ui/Logo";
 
 const NavBar = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
