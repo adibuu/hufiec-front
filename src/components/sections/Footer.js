@@ -12,7 +12,8 @@ import { FaInstagram, FaFacebook } from "react-icons/fa";
 const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
-      bg={useColorModeValue("primary.500", "primary.500")}
+      bg={useColorModeValue("primary.900", "primary.900")}
+      color="white"
       rounded={"full"}
       w={10}
       h={10}

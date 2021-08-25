@@ -4,12 +4,16 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Layout from "./hoc/Layout";
 import Hero from "./components/sections/Hero";
 import Contact from "./components/sections/Contact";
+import Gallery from "./components/sections/Gallery";
 
 export default function App() {
   return (
     <Layout>
       <BrowserRouter>
         <Switch>
+          <Route path="/galeria">
+            <Gallery />
+          </Route>
           <Route path="/kontakt">
             <Contact />
           </Route>

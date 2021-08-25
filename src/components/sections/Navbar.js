@@ -82,6 +82,7 @@ const MenuLinks = ({ isOpen }) => {
 const NavBarContainer = ({ children, ...props }) => {
   return (
     <Flex
+      zIndex={1000}
       as="nav"
       align="center"
       position="fixed"
@@ -89,7 +90,7 @@ const NavBarContainer = ({ children, ...props }) => {
       wrap="wrap"
       w="100vw"
       boxShadow="2xl"
-      mb={8}
+      marginBottom="1rem"
       p={4}
       bg={["primary.500", "primary.500", "primary.500", "primary.500"]}
       color={["white", "white", "white", "white"]}
