@@ -13,7 +13,7 @@ const SocialButton = ({ children, label, href }) => {
   return (
     <chakra.button
       bg={useColorModeValue("primary.900", "primary.900")}
-      color="white"
+      color={useColorModeValue("white", "gray.800")}
       rounded={"full"}
       w={10}
       h={10}
@@ -25,7 +25,7 @@ const SocialButton = ({ children, label, href }) => {
       justifyContent={"center"}
       transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue("primary.200", "primary.200"),
+        bg: useColorModeValue("primary.200", "primary.600"),
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -37,7 +37,7 @@ const SocialButton = ({ children, label, href }) => {
 export default function SmallWithSocial() {
   return (
     <Box
-      bg={useColorModeValue("white", "white")}
+      bg={useColorModeValue("white", "gray.800")}
       color={useColorModeValue("primary.900", "primary.900")}
       mt="2rem"
     >

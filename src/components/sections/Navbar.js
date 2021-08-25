@@ -1,6 +1,16 @@
 import React from "react";
-import { Link, Box, Flex, Text, Stack } from "@chakra-ui/react";
+import {
+  Link,
+  Box,
+  Flex,
+  Text,
+  Stack,
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 import Logo from "../ui/Logo";
 
@@ -46,7 +56,7 @@ const MenuItem = ({ children, to = "/", ...rest }) => {
         mr={[null, null, "1rem", "2rem"]}
         transition={"color 0.3s ease"}
         _hover={{
-          color: ["primary.700", "primary.700", "primary.700", "primary.700"],
+          color: "primary.700",
         }}
         {...rest}
       >
@@ -57,6 +67,10 @@ const MenuItem = ({ children, to = "/", ...rest }) => {
 };
 
 const MenuLinks = ({ isOpen }) => {
+  const { toggleColorMode } = useColorMode();
+  const SwitchColorIcon = useColorModeValue(FaMoon, FaSun);
+  const colorModeText = useColorModeValue("dark", "light");
+
   return (
     <Box
       display={{ base: isOpen ? "block" : "none", md: "block" }}
@@ -74,6 +88,16 @@ const MenuLinks = ({ isOpen }) => {
         <MenuItem to="/dokumenty">DOKUMENTY </MenuItem>
         <MenuItem to="/galeria">GALERIA </MenuItem>
         <MenuItem to="/kontakt">KONTAKT</MenuItem>
+        <IconButton
+          size="md"
+          fontSize="lg"
+          aria-label={`Switch to ${colorModeText} mode`}
+          variant="ghost"
+          color="current"
+          ml={{ base: "0", md: "3" }}
+          onClick={toggleColorMode}
+          icon={<SwitchColorIcon />}
+        />
       </Stack>
     </Box>
   );
@@ -92,8 +116,8 @@ const NavBarContainer = ({ children, ...props }) => {
       boxShadow="2xl"
       marginBottom="1rem"
       p={4}
-      bg={["primary.500", "primary.500", "primary.500", "primary.500"]}
-      color={["white", "white", "white", "white"]}
+      bg={useColorModeValue("primary.500", "gray.900")}
+      color={useColorModeValue("white", "gray.300")}
       {...props}
     >
       {children}

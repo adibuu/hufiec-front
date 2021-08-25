@@ -50,10 +50,11 @@ const CTA = () => {
             <Button
               size="lg"
               fontWeight="bold"
-              color={useColorModeValue("white")}
-              bg={useColorModeValue("primary.600", "primary.500")}
+              color={useColorModeValue("white", "gray.300")}
+              bg={useColorModeValue("primary.600", "primary.800")}
               _hover={{
-                bg: useColorModeValue("primary.700", "primary.600"),
+                bg: useColorModeValue("primary.700", "primary.900"),
+                color: useColorModeValue("white", "gray.400"),
               }}
             >
               PRZEJDŹ DO DOKUMENTÓW
