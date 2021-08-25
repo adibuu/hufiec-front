@@ -5,12 +5,16 @@ import Layout from "./hoc/Layout";
 import Hero from "./components/sections/Hero";
 import Contact from "./components/sections/Contact";
 import Gallery from "./components/sections/Gallery";
+import Documents from "./components/sections/Documents";
 
 export default function App() {
   return (
     <Layout>
       <BrowserRouter>
         <Switch>
+          <Route path="/dokumenty">
+            <Documents />
+          </Route>
           <Route path="/galeria">
             <Gallery />
           </Route>
