@@ -16,26 +16,13 @@ const CTA = () => {
       columns={{ base: 1, md: 2 }}
       spacing={0}
       margin={[
-        "10rem 0 1rem 0",
-        "10rem 0 1rem 0",
+        "2rem 0 1rem 0",
+        "2rem 0 1rem 0",
         "10rem 2rem 4rem 2rem",
         "10rem 5rem 5rem 5rem",
       ]}
       p="2rem"
     >
-      <Flex>
-        <Image
-          src="https://www.tapeciarnia.pl/tapety/normalne/128434_jezioro_biwak_promienie.jpg"
-          alt="Biwak"
-          fit="cover"
-          w="full"
-          h={{ base: 64, md: "full" }}
-          loading="lazy"
-          rounded="lg"
-          shadow="2xl"
-          opacity="0.9"
-        />
-      </Flex>
       <Flex
         direction="column"
         alignItems="start"
@@ -51,8 +38,8 @@ const CTA = () => {
           color={useColorModeValue("primary.600", "gray.300")}
           lineHeight="shorter"
         >
-          Nasza galeria jest dostępna wyłącznie dla zalogowanych posiadaczy kont
-          e-ZHP Office365.
+          Strona z dokumentami dostępna jest wyłącznie dla zalogowanych
+          posiadaczy kont e-ZHP Office365
         </chakra.h1>
         <Box display="inline-flex" rounded="md" shadow="md">
           <Link
@@ -69,10 +56,23 @@ const CTA = () => {
                 bg: useColorModeValue("primary.700", "primary.600"),
               }}
             >
-              PRZEJDŹ DO GALERII
+              PRZEJDŹ DO DOKUMENTÓW
             </Button>
           </Link>
         </Box>
+      </Flex>
+      <Flex>
+        <Image
+          src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt="Ognisko"
+          fit="cover"
+          w="full"
+          h={{ base: 64, md: "full" }}
+          loading="lazy"
+          rounded="lg"
+          shadow="2xl"
+          opacity="0.9"
+        />
       </Flex>
     </SimpleGrid>
   );
