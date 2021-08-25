@@ -12,6 +12,8 @@ const colors = {
     800: "#84A721",
     900: "#77961E",
   },
+  initialColorMode: "light",
+  useSystemColorMode: false,
 };
 
 const customTheme = extendTheme({ colors });

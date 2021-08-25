@@ -19,7 +19,7 @@ export default function S3c() {
       <Box>
         <Icon
           boxSize={24}
-          color={useColorModeValue("primary.700")}
+          color={useColorModeValue("primary.700", "gray.300")}
           mb={4}
           fill="none"
           viewBox="0 0 24 24"
@@ -33,7 +33,7 @@ export default function S3c() {
           fontSize="xl"
           lineHeight="shorter"
           fontWeight="bold"
-          color={useColorModeValue("gray.900")}
+          color={useColorModeValue("gray.900", "gray.300")}
         >
           {props.title}
         </chakra.h3>
@@ -44,7 +44,7 @@ export default function S3c() {
           color={useColorModeValue("gray.600", "gray.400")}
           transition={"color 0.3s ease"}
           _hover={{
-            color: ["primary.800", "primary.800", "primary.800", "primary.800"],
+            color: "primary.800",
           }}
         >
           {props.children}
@@ -64,6 +64,8 @@ export default function S3c() {
       backgroundPosition={"center center"}
       backgroundAttachment={"fixed"}
       backgroundBlendMode={"overlay"}
+      backgroundColor="gray.700"
+      opacity="0.9"
     >
       <VStack
         w={"full"}
@@ -73,7 +75,7 @@ export default function S3c() {
       >
         <Stack maxW={"2xl"} align={"flex-start"} spacing={8}>
           <Text
-            color={"white"}
+            color={useColorModeValue("white", "gray.300")}
             fontWeight={700}
             lineHeight={1.2}
             fontSize={{ base: "4xl", md: "5xl" }}
@@ -102,7 +104,7 @@ export default function S3c() {
           px={{ base: 4, lg: 16, xl: 24 }}
           py={20}
           mx="auto"
-          bg={useColorModeValue("white", "primary.800")}
+          bg={useColorModeValue("white", "gray.800")}
           shadow="dark-lg"
         >
           <Feature title="ADRES" icon={<FaLocationArrow />}>
