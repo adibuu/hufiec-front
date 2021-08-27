@@ -65,6 +65,7 @@ const CTA = () => {
               fontWeight="bold"
               color={useColorModeValue("white", "gray.300")}
               bg={useColorModeValue("primary.600", "primary.800")}
+              transition={"background 0.3s ease"}
               _hover={{
                 bg: useColorModeValue("primary.700", "primary.900"),
                 color: useColorModeValue("white", "gray.400"),

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Layout from "./hoc/Layout";
-import Hero from "./components/sections/Hero";
+import News from "./components/sections/News";
 import Contact from "./components/sections/Contact";
 import Gallery from "./components/sections/Gallery";
 import Documents from "./components/sections/Documents";
@@ -21,8 +21,11 @@ export default function App() {
           <Route path="/kontakt">
             <Contact />
           </Route>
+          <Route path="/aktualnosci">
+            <News />
+          </Route>
           <Route path="/">
-            <Hero />
+            <News />
           </Route>
         </Switch>
       </BrowserRouter>

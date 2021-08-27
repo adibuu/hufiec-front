@@ -20,6 +20,7 @@ const SocialButton = ({ children, label, href }) => {
       cursor={"pointer"}
       as={"a"}
       href={href}
+      target="_blank"
       display={"inline-flex"}
       alignItems={"center"}
       justifyContent={"center"}
@@ -53,13 +54,10 @@ export default function SmallWithSocial() {
       >
         <Text>Copyright © 2021 Hufiec ZHP. Wszystkie prawa zastrzeżone. </Text>
         <Stack direction={"row"} spacing={5}>
-          <SocialButton
-            label={"Facebook"}
-            href={"https://chakra-ui.com/docs/navigation/link"}
-          >
+          <SocialButton label={"Facebook"} href={"https://chakra-ui.com/"}>
             <FaFacebook />
           </SocialButton>
-          <SocialButton label={"Instagram"} href={"#"}>
+          <SocialButton label={"Instagram"} href={"https://chakra-ui.com/"}>
             <FaInstagram />
           </SocialButton>
         </Stack>
