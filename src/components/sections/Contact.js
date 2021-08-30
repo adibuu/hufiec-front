@@ -56,7 +56,7 @@ export default function S3c() {
   const FirstSection = () => (
     <Flex
       w={"100vw"}
-      h={"100vh"}
+      h={"55vh"}
       backgroundImage={
         "url(https://images.pexels.com/photos/142497/pexels-photo-142497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)"
       }
@@ -92,8 +92,8 @@ export default function S3c() {
       <FirstSection />
       <Flex
         p={20}
-        mt="5rem"
-        mb="5rem"
+        mt="4rem"
+        mb="4rem"
         w="auto"
         justifyContent="center"
         alignItems="center"
@@ -121,11 +121,11 @@ export default function S3c() {
           </Feature>
         </SimpleGrid>
       </Flex>
-      <div style={{ width: "100vw" }}>
+      <div style={{ width: "100vw", height: "40vh" }}>
         <iframe
           title="map"
           width="100%"
-          height="600"
+          height="100%"
           frameborder="0"
           scrolling="no"
           marginheight="0"
