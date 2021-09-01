@@ -38,7 +38,8 @@ const Team = ({ name, image, teamLink }) => (
           color={useColorModeValue("white", "gray.300")}
           fontWeight={700}
           lineHeight={1.2}
-          fontSize={{ base: "5xl", md: "6xl" }}
+          fontSize={{ base: "4xl", md: "6xl" }}
+          align={"center"}
         >
           {name}
         </Text>
