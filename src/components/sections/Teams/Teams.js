@@ -1,6 +1,7 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
-import Team from "../Team";
+import { Box } from "@chakra-ui/react";
+
+import Team from "./Team";
 
 const Teams = () => {
   const teams = [

@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Layout from "./hoc/Layout";
-import News from "./components/sections/News";
-import Contact from "./components/sections/Contact";
+import Articles from "./components/sections/Articles/Articles";
+import Contact from "./components/sections/Contact/Contact";
 import Gallery from "./components/sections/Gallery";
 import Documents from "./components/sections/Documents";
-import Teams from "./components/sections/Teams";
+import Teams from "./components/sections/Teams/Teams";
 
 export default function App() {
   return (
@@ -23,13 +23,13 @@ export default function App() {
             <Contact />
           </Route>
           <Route path="/aktualnosci">
-            <News />
+            <Articles />
           </Route>
           <Route path="/druzyny">
             <Teams />
           </Route>
           <Route path="/">
-            <News />
+            <Articles />
           </Route>
         </Switch>
       </BrowserRouter>

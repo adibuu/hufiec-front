@@ -1,7 +1,8 @@
 import React from "react";
-import Article from "../Article";
 
-const News = () => {
+import Article from "./Article";
+
+const Articles = () => {
   const articles = [
     {
       id: "1",
@@ -61,4 +62,4 @@ const News = () => {
   return <React.Fragment>{articlesToShow}</React.Fragment>;
 };
 
-export default News;
+export default Articles;
