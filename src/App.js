@@ -6,6 +6,7 @@ import News from "./components/sections/News";
 import Contact from "./components/sections/Contact";
 import Gallery from "./components/sections/Gallery";
 import Documents from "./components/sections/Documents";
+import Teams from "./components/sections/Teams";
 
 export default function App() {
   return (
@@ -23,6 +24,9 @@ export default function App() {
           </Route>
           <Route path="/aktualnosci">
             <News />
+          </Route>
+          <Route path="/druzyny">
+            <Teams />
           </Route>
           <Route path="/">
             <News />

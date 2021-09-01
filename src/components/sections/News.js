@@ -50,7 +50,7 @@ const News = () => {
   const articlesToShow = articles.map((a) => (
     <Article
       key={a.id}
-      articleLink={a.id}
+      articleLink={"/aktualnosci/" + a.id}
       title={a.title}
       subtitle={a.preview}
       image={a.image}
