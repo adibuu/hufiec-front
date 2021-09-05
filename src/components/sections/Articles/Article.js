@@ -70,7 +70,7 @@ const Article = ({ articleLink, title, subtitle, image, date }) => (
         {date}
       </Text>
     </Stack>
-    <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
+    <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 5, md: 0 }}>
       <Link to={articleLink}>
         <Image
           src={image}
