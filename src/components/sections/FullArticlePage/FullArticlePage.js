@@ -19,15 +19,6 @@ const FullArticlePage = () => (
       >
         Opublikowano: 18.09.2012, 13 min. czytania
       </Text>
-      <Box w={{ base: "70%", sm: "40", md: "40%" }}>
-        <Image
-          src="https://wallpaperaccess.com/full/1356048.jpg"
-          size="100%"
-          width="100%"
-          rounded="0.5rem"
-          shadow="2xl"
-        />
-      </Box>
       <Heading
         as="h1"
         size="xl"
@@ -37,6 +28,15 @@ const FullArticlePage = () => (
       >
         Lorem ipsum dolor sit amet
       </Heading>
+      <Box w={{ base: "70%", sm: "40", md: "40%" }}>
+        <Image
+          src="https://wallpaperaccess.com/full/1356048.jpg"
+          size="100%"
+          width="100%"
+          rounded="0.5rem"
+          shadow="2xl"
+        />
+      </Box>
       <Box
         w={{ base: "80%", sm: "70%", md: "65%" }}
         textAlign="justify"
