@@ -1,4 +1,5 @@
 import React from "react";
+import HtmlParser from "html-react-parser";
 
 import Article from "./Article";
 
@@ -53,9 +54,9 @@ const Articles = () => {
       key={a.id}
       articleLink={`/aktualnosci/artykul/${a.id}`}
       title={a.title}
-      subtitle={a.preview}
+      subtitle={HtmlParser(a.preview)}
       image={a.image}
-      date={a.date}
+      date={new Date(a.date).toLocaleString()}
     />
   ));
 
