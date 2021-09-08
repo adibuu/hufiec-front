@@ -8,6 +8,7 @@ import Gallery from "./components/sections/Gallery";
 import Documents from "./components/sections/Documents";
 import Teams from "./components/sections/Teams/Teams";
 import FullArticlePage from "./components/sections/FullArticlePage/FullArticlePage";
+import FullTeamPage from "./components/sections/FullTeamPage/FullTeamPage";
 
 export default function App() {
   return (
@@ -16,6 +17,9 @@ export default function App() {
         <Switch>
           <Route path="/aktualnosci/artykul/:id">
             <FullArticlePage />
+          </Route>
+          <Route path="/druzyny/:id">
+            <FullTeamPage />
           </Route>
           <Route path="/dokumenty">
             <Documents />
