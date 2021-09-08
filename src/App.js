@@ -7,12 +7,16 @@ import Contact from "./components/sections/Contact/Contact";
 import Gallery from "./components/sections/Gallery";
 import Documents from "./components/sections/Documents";
 import Teams from "./components/sections/Teams/Teams";
+import FullArticlePage from "./components/sections/FullArticlePage/FullArticlePage";
 
 export default function App() {
   return (
     <Layout>
       <BrowserRouter>
         <Switch>
+          <Route path="/aktualnosci/artykul/:id">
+            <FullArticlePage />
+          </Route>
           <Route path="/dokumenty">
             <Documents />
           </Route>

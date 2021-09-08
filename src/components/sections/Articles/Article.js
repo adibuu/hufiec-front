@@ -55,23 +55,22 @@ const Article = ({ articleLink, title, subtitle, image, date }) => (
           {subtitle}
         </Heading>
       </Link>
-      <Link to={articleLink}>
-        <Text
-          fontSize="s"
-          mt={2}
-          textAlign="center"
-          color={useColorModeValue("gray.900", "gray.300")}
-          opacity="0.6"
-          transition={"color 0.3s ease"}
-          _hover={{
-            color: useColorModeValue("gray.500", "gray.500"),
-          }}
-        >
-          {date}
-        </Text>
-      </Link>
+
+      <Text
+        fontSize="s"
+        mt={2}
+        textAlign="center"
+        color={useColorModeValue("gray.900", "gray.300")}
+        opacity="0.6"
+        transition={"color 0.3s ease"}
+        _hover={{
+          color: useColorModeValue("gray.500", "gray.500"),
+        }}
+      >
+        {date}
+      </Text>
     </Stack>
-    <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 12, md: 0 }}>
+    <Box w={{ base: "80%", sm: "60%", md: "50%" }} mb={{ base: 5, md: 0 }}>
       <Link to={articleLink}>
         <Image
           src={image}
