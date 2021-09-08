@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { useReactToPrint } from "react-to-print";
 import HtmlParser from "html-react-parser";
-import { Button, Center } from "@chakra-ui/react";
+import { Button, Stack, Spacer } from "@chakra-ui/react";
 import { AiFillPrinter } from "react-icons/ai";
 
 import FullArticle from "./FullArticle";
+import Share from "./Share";
 
 const FullArticlePage = () => {
   const componentRef = useRef();
@@ -61,7 +62,7 @@ const FullArticlePage = () => {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <FullArticle
         ref={componentRef}
         readTime={article.readTime}
@@ -70,12 +71,14 @@ const FullArticlePage = () => {
         image={article.image}
         content={HtmlParser(article.content)}
       />
-      <Center>
+      <Stack direction={["column", "row"]} spacing="24px">
+        <Share />
+        <Spacer />
         <Button onClick={handlePrint} leftIcon={<AiFillPrinter />} shadow="md">
           Drukuj artykuł
         </Button>
-      </Center>
-    </div>
+      </Stack>
+    </React.Fragment>
   );
 };
 
