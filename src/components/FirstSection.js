@@ -1,13 +1,11 @@
 import React from "react";
 import { Flex, useColorModeValue, VStack, Stack, Text } from "@chakra-ui/react";
 
-const FirstSection = () => (
+const FirstSection = ({ title, image }) => (
   <Flex
     w={"100vw"}
     h={"55vh"}
-    backgroundImage={
-      "url(https://images.pexels.com/photos/142497/pexels-photo-142497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)"
-    }
+    backgroundImage={`url(${image})`}
     backgroundSize={"cover"}
     backgroundPosition={"center center"}
     backgroundAttachment={"fixed"}
@@ -28,7 +26,7 @@ const FirstSection = () => (
           lineHeight={1.2}
           fontSize={{ base: "4xl", md: "5xl" }}
         >
-          Jeżeli masz jakieś pytania, chętnie udzielimy na nie odpowiedzi
+          {title}
         </Text>
       </Stack>
     </VStack>

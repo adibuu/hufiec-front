@@ -2,14 +2,16 @@ import React from "react";
 import { SimpleGrid, Flex, useColorModeValue } from "@chakra-ui/react";
 import { FaLocationArrow, FaPhone, FaEnvelope } from "react-icons/fa";
 
-import FirstSection from "./FirstSection";
-import ContactData from "./ContactData";
+import FirstSection from "../../FirstSection";
+import ContactData from "../../ContactData";
 import MailTo from "../../../utils/MailTo";
-import Map from "./Map";
 
 const Contact = () => (
   <React.Fragment>
-    <FirstSection />
+    <FirstSection
+      title="Jeżeli masz jakieś pytania, chętnie udzielimy na nie odpowiedzi"
+      image="https://images.pexels.com/photos/142497/pexels-photo-142497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    />
     <Flex
       p={20}
       mt="4rem"
@@ -38,7 +40,6 @@ const Contact = () => (
         </ContactData>
       </SimpleGrid>
     </Flex>
-    <Map />
   </React.Fragment>
 );
 
