@@ -75,7 +75,7 @@ const Article = ({ articleLink, title, subtitle, image, date }) => (
         <Image
           src={image}
           size="100%"
-          width="100%"
+          width="50vw"
           rounded="1rem"
           shadow="2xl"
           transform="scale(1.0)"
