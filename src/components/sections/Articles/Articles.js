@@ -4,9 +4,8 @@ import { Spinner } from "@chakra-ui/react";
 import HtmlParser from "html-react-parser";
 
 import Article from "./Article";
-import { fetchArticles } from "../../../store/articlesActions";
-
-const IMG = "https://cdn.wallpapersafari.com/12/75/QeySDc.jpg";
+import { fetchArticles } from "../../../store/articles/articlesActions";
+import { defaultArticleImage } from "../../../config/defaultData";
 
 const Articles = () => {
   const dispatch = useDispatch();
@@ -17,13 +16,17 @@ const Articles = () => {
     dispatch(fetchArticles());
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const articlesToShow = articles.map((a) => (
     <Article
       key={a._id}
       articleLink={`/aktualnosci/artykul/${a._id}`}
       title={a.title}
       subtitle={HtmlParser(a.preview)}
-      image={a.imageURL || IMG}
+      image={a.imageURL || defaultArticleImage}
       date={a.expireAt.split("T")[0]}
     />
   ));

@@ -7,7 +7,7 @@ const articlesSlice = createSlice({
     results: [],
   },
   reducers: {
-    updateArticles(state, action) {
+    getArticles(state, action) {
       state.documentsAmount = action.payload.documentsAmount;
       state.results = action.payload.results;
     },
