@@ -1,25 +1,13 @@
 import { teamsActions } from "../slices/teamsSlice";
 import { uiActions } from "../slices/uiSlice";
 import { teamsEndpoints } from "../../config/endpoints";
+import fetchData from "../../utils/fetchData";
 
 export const fetchTeams = () => {
   return async (dispatch) => {
     dispatch(uiActions.setLoading(true));
-
-    const fetchData = async () => {
-      const response = await fetch(teamsEndpoints.get);
-
-      if (!response.ok) {
-        throw new Error("Could not fetch data!");
-      }
-
-      const data = await response.json();
-
-      return data;
-    };
-
     try {
-      const teamsData = await fetchData();
+      const teamsData = await fetchData(teamsEndpoints.get);
       dispatch(
         teamsActions.setTeams({
           results: teamsData,

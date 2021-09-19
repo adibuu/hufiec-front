@@ -4,6 +4,7 @@ import uiReducer from "./slices/uiSlice";
 import articlesReducer from "./slices/articlesSlice";
 import articleReducer from "./slices/articleSlice";
 import teamsReducer from "./slices/teamsSlice";
+import teamReducer from "./slices/teamSlice";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     articles: articlesReducer,
     article: articleReducer,
     teams: teamsReducer,
+    team: teamReducer,
   },
 });
 
