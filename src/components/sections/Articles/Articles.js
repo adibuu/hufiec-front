@@ -4,7 +4,7 @@ import { Spinner } from "@chakra-ui/react";
 import HtmlParser from "html-react-parser";
 
 import Article from "./Article";
-import { fetchArticles } from "../../../store/articles/articlesActions";
+import { fetchArticles } from "../../../store/actions/articlesActions";
 import { defaultArticleImage } from "../../../config/defaultData";
 
 const Articles = () => {

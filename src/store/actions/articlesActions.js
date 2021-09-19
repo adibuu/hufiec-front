@@ -1,27 +1,15 @@
-import { articlesActions } from "./articlesSlice";
-import { uiActions } from "../ui/uiSlice";
+import { articlesActions } from "../slices/articlesSlice";
+import { uiActions } from "../slices/uiSlice";
 import { articlesEndpoints } from "../../config/endpoints";
+import fetchData from "../../utils/fetchData";
 
 export const fetchArticles = () => {
   return async (dispatch) => {
     dispatch(uiActions.setLoading(true));
-
-    const fetchData = async () => {
-      const response = await fetch(articlesEndpoints.get);
-
-      if (!response.ok) {
-        throw new Error("Could not fetch data!");
-      }
-
-      const data = await response.json();
-
-      return data;
-    };
-
     try {
-      const articlesData = await fetchData();
+      const articlesData = await fetchData(articlesEndpoints.get);
       dispatch(
-        articlesActions.getArticles({
+        articlesActions.setArticles({
           documentsAmount: articlesData.documentsAmount || 0,
           results: articlesData.results || [],
         })
