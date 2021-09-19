@@ -5,6 +5,8 @@ import articlesReducer from "./slices/articlesSlice";
 import articleReducer from "./slices/articleSlice";
 import teamsReducer from "./slices/teamsSlice";
 import teamReducer from "./slices/teamSlice";
+import documentsReducer from "./slices/documentsSlice";
+import galleryReducer from "./slices/gallerySlice";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +15,8 @@ const store = configureStore({
     article: articleReducer,
     teams: teamsReducer,
     team: teamReducer,
+    documents: documentsReducer,
+    gallery: galleryReducer,
   },
 });
 

@@ -8,3 +8,11 @@ export const articlesEndpoints = {
 export const teamsEndpoints = {
   get: API_URL + "/teams",
 };
+
+export const documentsEndpoints = {
+  get: API_URL + "/document",
+};
+
+export const galleryEndpoints = {
+  get: API_URL + "/gallery",
+};
