@@ -21,7 +21,7 @@ class FullArticle extends React.PureComponent {
         >
           {this.props.title}
         </Heading>
-        <Box w={{ base: "70%", sm: "40", md: "40%" }}>
+        <Box w={{ base: "70%", sm: "40%", md: "40%" }}>
           <Image
             src={this.props.image}
             size="100%"

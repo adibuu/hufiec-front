@@ -15,30 +15,14 @@ export default function App() {
     <Layout>
       <BrowserRouter>
         <Switch>
-          <Route path="/aktualnosci/artykul/:id">
-            <FullArticlePage />
-          </Route>
-          <Route path="/druzyny/:id">
-            <FullTeamPage />
-          </Route>
-          <Route path="/dokumenty">
-            <Documents />
-          </Route>
-          <Route path="/galeria">
-            <Gallery />
-          </Route>
-          <Route path="/kontakt">
-            <Contact />
-          </Route>
-          <Route path="/aktualnosci">
-            <Articles />
-          </Route>
-          <Route path="/druzyny">
-            <Teams />
-          </Route>
-          <Route path="/">
-            <Articles />
-          </Route>
+          <Route path="/aktualnosci/artykul/:id" component={FullArticlePage} />
+          <Route path="/druzyny/:id" component={FullTeamPage} />
+          <Route path="/dokumenty" component={Documents} />
+          <Route path="/galeria" component={Gallery} />
+          <Route path="/kontakt" component={Contact} />
+          <Route exact path="/aktualnosci" component={Articles} />
+          <Route exact path="/druzyny" component={Teams} />
+          <Route path="/" component={Articles} />
         </Switch>
       </BrowserRouter>
     </Layout>

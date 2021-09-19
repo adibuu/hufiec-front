@@ -1,66 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Spinner } from "@chakra-ui/react";
 import HtmlParser from "html-react-parser";
 
 import Article from "./Article";
+import { fetchArticles } from "../../../store/articles/articlesActions";
+import { defaultArticleImage } from "../../../config/defaultData";
 
 const Articles = () => {
-  const articles = [
-    {
-      id: "1",
-      title: "Suspendisse potenti. Nulla imperdiet nulla magna.",
-      preview:
-        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium velit eget lobortis placerat. Nulla a ante sed ante scelerisque tincidunt in id mauris. Pellentesque nec risus massa. Phasellus quis.</p>",
-      content:
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      image:
-        "https://www.barnardandwestwood.com/wp-content/uploads/2014/09/Forrest-Free-HQ-Background-5_1030x690.jpg",
-      date: Date.now(),
-    },
-    {
-      id: "2",
-      title: "Vivamus pharetra, nunc eget consectetur pharetra",
-      preview:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium velit eget lobortis placerat. Nulla a ante sed ante scelerisque tincidunt in id mauris. Pellentesque nec risus massa. Phasellus quis.",
-      content:
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      image: "https://cdn.wallpapersafari.com/12/75/QeySDc.jpg",
-      date: Date.now(),
-    },
-    {
-      id: "3",
-      title: "Where can I get some?",
-      preview:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium velit eget lobortis placerat. Nulla a ante sed ante scelerisque tincidunt in id mauris. Pellentesque nec risus massa. Phasellus quis.",
-      content:
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      image:
-        "https://andreaskunzphotography.com/wp-content/uploads/2018/07/autumn-forrest-with-farns-and-river-2560-hq-1030x686.jpg",
-      date: Date.now(),
-    },
-    {
-      id: "4",
-      title: "What is Lorem Ipsum?",
-      preview: "To jest artykuł o niczym ale to jest test artykułu 4",
-      content:
-        "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      image:
-        "https://www.barnardandwestwood.com/wp-content/uploads/2014/09/Forrest-Free-HQ-Background-5_1030x320.jpg",
-      date: Date.now(),
-    },
-  ];
+  const dispatch = useDispatch();
+  const articles = useSelector((state) => state.articles.results);
+  const loading = useSelector((state) => state.ui.loading);
+
+  useEffect(() => {
+    dispatch(fetchArticles());
+  }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   const articlesToShow = articles.map((a) => (
     <Article
-      key={a.id}
-      articleLink={`/aktualnosci/artykul/${a.id}`}
+      key={a._id}
+      articleLink={`/aktualnosci/artykul/${a._id}`}
       title={a.title}
       subtitle={HtmlParser(a.preview)}
-      image={a.image}
-      date={new Date(a.date).toLocaleString()}
+      image={a.imageURL || defaultArticleImage}
+      date={a.expireAt.split("T")[0]}
     />
   ));
 
-  return <React.Fragment>{articlesToShow}</React.Fragment>;
+  return loading ? (
+    <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
+  ) : (
+    articlesToShow
+  );
 };
 
 export default Articles;
