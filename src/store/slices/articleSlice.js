@@ -10,7 +10,7 @@ const articleSlice = createSlice({
     date: "",
   },
   reducers: {
-    getArticle(state, action) {
+    setArticle(state, action) {
       state.title = action.payload.title;
       state.content = action.payload.content;
       state.imageURL = action.payload.imageURL;

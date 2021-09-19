@@ -1,5 +1,5 @@
-import { articleActions } from "./articleSlice";
-import { uiActions } from "../ui/uiSlice";
+import { articleActions } from "../slices/articleSlice";
+import { uiActions } from "../slices/uiSlice";
 import { articlesEndpoints } from "../../config/endpoints";
 
 export const fetchArticle = (id) => {
@@ -21,7 +21,7 @@ export const fetchArticle = (id) => {
     try {
       const articleData = await fetchData();
       dispatch(
-        articleActions.getArticle({
+        articleActions.setArticle({
           title: articleData.title,
           content: articleData.content,
           imageURL: articleData.imageURL,

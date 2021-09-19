@@ -1,14 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import articlesReducer from "./articles/articlesSlice";
-import articleReducer from "./article/articleSlice";
-import uiReducer from "./ui/uiSlice";
+import uiReducer from "./slices/uiSlice";
+import articlesReducer from "./slices/articlesSlice";
+import articleReducer from "./slices/articleSlice";
+import teamsReducer from "./slices/teamsSlice";
 
 const store = configureStore({
   reducer: {
+    ui: uiReducer,
     articles: articlesReducer,
     article: articleReducer,
-    ui: uiReducer,
+    teams: teamsReducer,
   },
 });
 

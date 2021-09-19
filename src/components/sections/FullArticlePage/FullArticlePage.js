@@ -8,7 +8,7 @@ import { AiFillPrinter } from "react-icons/ai";
 
 import FullArticle from "./FullArticle";
 import Share from "./Share";
-import { fetchArticle } from "../../../store/article/articleActions";
+import { fetchArticle } from "../../../store/actions/articleActions";
 
 const FullArticlePage = (props) => {
   const dispatch = useDispatch();

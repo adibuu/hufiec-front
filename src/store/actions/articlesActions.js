@@ -1,5 +1,5 @@
-import { articlesActions } from "./articlesSlice";
-import { uiActions } from "../ui/uiSlice";
+import { articlesActions } from "../slices/articlesSlice";
+import { uiActions } from "../slices/uiSlice";
 import { articlesEndpoints } from "../../config/endpoints";
 
 export const fetchArticles = () => {
@@ -21,7 +21,7 @@ export const fetchArticles = () => {
     try {
       const articlesData = await fetchData();
       dispatch(
-        articlesActions.getArticles({
+        articlesActions.setArticles({
           documentsAmount: articlesData.documentsAmount || 0,
           results: articlesData.results || [],
         })

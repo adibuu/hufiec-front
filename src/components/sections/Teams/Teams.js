@@ -1,44 +1,26 @@
-import React from "react";
-import { Box } from "@chakra-ui/react";
+import React, { Fragment, useEffect } from "react";
+import { Box, Spinner } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Team from "./Team";
+import { fetchTeams } from "../../../store/actions/teamsActions";
 
 const Teams = () => {
-  const teams = [
-    {
-      id: "1",
-      name: "Kapituła Stopni Wędrowniczych",
-      image:
-        "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=967&q=80",
-    },
-    {
-      id: "2",
-      name: "Komisja Stopni Instruktorskich",
-      image:
-        "https://images.unsplash.com/photo-1511497584788-876760111969?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80",
-    },
-    {
-      id: "3",
-      name: "Komisja Rewizyjna",
-      image:
-        "https://images.unsplash.com/photo-1494825514961-674db1ac2700?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
-    },
-    {
-      id: "4",
-      name: "Zespół Komunikacji i Promocji",
-      image:
-        "https://images.unsplash.com/photo-1456030680012-9aa5bd962cc4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    },
-  ];
+  const dispatch = useDispatch();
+  const teams = useSelector((state) => state.teams.results);
+  const loading = useSelector((state) => state.ui.loading);
+
+  useEffect(() => {
+    dispatch(fetchTeams());
+  }, [dispatch]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   const teamsToShow = teams.map((t) => (
-    <>
-      <Team
-        key={t.id}
-        name={t.name}
-        image={t.image}
-        teamLink={"/druzyny/" + t.id}
-      />
+    <Fragment key={t._id}>
+      <Team name={t.name} image={t.photoURL} teamLink={"/druzyny/" + t._id} />
       <Box
         rounded="md"
         backgroundColor="primary.800"
@@ -46,10 +28,14 @@ const Teams = () => {
         h="5px"
         shadow="2xl"
       />
-    </>
+    </Fragment>
   ));
 
-  return <React.Fragment>{teamsToShow}</React.Fragment>;
+  return loading ? (
+    <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
+  ) : (
+    teamsToShow
+  );
 };
 
 export default Teams;

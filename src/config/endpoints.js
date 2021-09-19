@@ -4,3 +4,7 @@ const API_URL =
 export const articlesEndpoints = {
   get: API_URL + "/posts",
 };
+
+export const teamsEndpoints = {
+  get: API_URL + "/teams",
+};
