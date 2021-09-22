@@ -21,7 +21,6 @@ export const fetchContact = () => {
           instagramURL: contactData[0].instagramURL,
         })
       );
-      dispatch(uiActions.setLoading(false));
     } catch (error) {
       console.log(error);
     }

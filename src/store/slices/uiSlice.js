@@ -2,10 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const uiSlice = createSlice({
   name: "ui",
-  initialState: { loading: true },
+  initialState: { loading: true, footer: false },
   reducers: {
     setLoading(state, action) {
       state.loading = action.payload;
+    },
+    setFooter(state, action) {
+      state.footer = action.payload;
     },
   },
 });

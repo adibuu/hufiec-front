@@ -5,17 +5,11 @@ import { FaLocationArrow, FaPhone, FaEnvelope } from "react-icons/fa";
 import FirstSection from "../../FirstSection";
 import ContactData from "../../ContactData";
 import MailTo from "../../../utils/MailTo";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchContact } from "../../../store/actions/contactActions";
+import { useSelector } from "react-redux";
 
 const Contact = () => {
-  const dispatch = useDispatch();
   const contact = useSelector((state) => state.contact);
   const loading = useSelector((state) => state.ui.loading);
-
-  useEffect(() => {
-    dispatch(fetchContact());
-  }, [dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

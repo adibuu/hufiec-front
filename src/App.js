@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Layout from "./hoc/Layout";
@@ -9,8 +9,21 @@ import Documents from "./components/sections/Documents";
 import Teams from "./components/sections/Teams/Teams";
 import FullArticlePage from "./components/sections/FullArticlePage/FullArticlePage";
 import FullTeamPage from "./components/sections/FullTeamPage/FullTeamPage";
+import { useDispatch } from "react-redux";
+import { fetchContact } from "./store/actions/contactActions";
+import { fetchArticles } from "./store/actions/articlesActions";
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContact());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchArticles());
+  }, [dispatch]);
+
   return (
     <Layout>
       <BrowserRouter>
