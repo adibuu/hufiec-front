@@ -16,3 +16,7 @@ export const documentsEndpoints = {
 export const galleryEndpoints = {
   get: API_URL + "/gallery",
 };
+
+export const contactEndpoints = {
+  get: API_URL + "/contact",
+};

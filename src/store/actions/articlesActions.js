@@ -15,6 +15,7 @@ export const fetchArticles = () => {
         })
       );
       dispatch(uiActions.setLoading(false));
+      dispatch(uiActions.setFooter(true));
     } catch (error) {
       console.log(error);
     }
