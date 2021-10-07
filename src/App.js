@@ -13,9 +13,14 @@ import infoModal from "./components/InfoModal";
 import { useDispatch } from "react-redux";
 import { fetchContact } from "./store/actions/contactActions";
 import { fetchArticles } from "./store/actions/articlesActions";
+import { fetchInfoModal } from "./store/actions/infoModalActions";
 
 export default function App() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchInfoModal());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchContact());

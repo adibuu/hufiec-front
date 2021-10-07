@@ -20,3 +20,7 @@ export const galleryEndpoints = {
 export const contactEndpoints = {
   get: API_URL + "/contact",
 };
+
+export const infoModalEndpoints = {
+  get: API_URL + "/infoModal",
+};

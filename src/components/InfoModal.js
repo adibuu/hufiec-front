@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Modal,
   ModalOverlay,
@@ -8,18 +9,34 @@ import {
   ModalCloseButton,
   Button,
 } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { infoModalActions } from "../store/slices/infoModalSlice";
+import HtmlParser from "html-react-parser";
 
-const infoModal = () => {
+const InfoModal = () => {
+  const dispatch = useDispatch();
+  const modal = useSelector((state) => state.infoModal);
+
   return (
     <>
-      <Modal onClose={false} isOpen={true} isCentered>
+      <Modal
+        onClose={() => dispatch(infoModalActions.setInfoModal({ show: false }))}
+        isOpen={modal.show}
+        isCentered
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader>INFORMACJA</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Cos tam cos tam</ModalBody>
+          <ModalBody>{modal.content}</ModalBody>
           <ModalFooter>
-            <Button onClick={false}>Close</Button>
+            <Button
+              onClick={() =>
+                dispatch(infoModalActions.setInfoModal({ show: false }))
+              }
+            >
+              Zamknij
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
@@ -27,4 +44,4 @@ const infoModal = () => {
   );
 };
 
-export default infoModal;
+export default InfoModal;
