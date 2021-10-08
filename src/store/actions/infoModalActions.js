@@ -8,7 +8,6 @@ export const fetchInfoModal = () => {
     dispatch(uiActions.setLoading(true));
     try {
       const infoModalData = await fetchData(infoModalEndpoints.get);
-      console.log(infoModalData);
       dispatch(
         infoModalActions.setInfoModal({
           show: infoModalData[0].show || false,

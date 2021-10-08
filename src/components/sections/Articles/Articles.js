@@ -5,10 +5,12 @@ import HtmlParser from "html-react-parser";
 
 import Article from "./Article";
 import { defaultArticleImage } from "../../../config/defaultData";
+import InfoModal from "../../InfoModal";
 
 const Articles = () => {
   const articles = useSelector((state) => state.articles.results);
   const loading = useSelector((state) => state.ui.loading);
+  const modal = useSelector((state) => state.infoModal);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,7 +30,10 @@ const Articles = () => {
   return loading ? (
     <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
   ) : (
-    articlesToShow
+    <React.Fragment>
+      {modal.show ? <InfoModal /> : null}
+      {articlesToShow}
+    </React.Fragment>
   );
 };
 
