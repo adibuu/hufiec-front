@@ -8,6 +8,7 @@ import teamReducer from "./slices/teamSlice";
 import documentsReducer from "./slices/documentsSlice";
 import galleryReducer from "./slices/gallerySlice";
 import contactReducer from "./slices/contactSlice";
+import infoModalReducer from "./slices/infoModalSlice";
 
 const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ const store = configureStore({
     documents: documentsReducer,
     gallery: galleryReducer,
     contact: contactReducer,
+    infoModal: infoModalReducer,
   },
 });
 
