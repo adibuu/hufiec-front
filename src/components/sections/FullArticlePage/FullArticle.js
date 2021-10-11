@@ -10,7 +10,8 @@ class FullArticle extends React.PureComponent {
           fontSize={{ base: "md", sm: "md", md: "xl" }}
           opacity="0.7"
         >
-          Opublikowano: {this.props.date}, {this.props.readTime} min. czytania
+          Opublikowano: {this.props.date}, {this.props.readingTime} min.
+          czytania
         </Text>
         <Heading
           as="h1"

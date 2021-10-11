@@ -8,6 +8,7 @@ const articleSlice = createSlice({
     imageURL: null,
     filesURL: [],
     date: "",
+    readingTime: 0,
   },
   reducers: {
     setArticle(state, action) {
@@ -16,6 +17,7 @@ const articleSlice = createSlice({
       state.imageURL = action.payload.imageURL;
       state.filesURL = action.payload.filesURL;
       state.date = action.payload.date;
+      state.readingTime = action.payload.readingTime;
     },
   },
 });
