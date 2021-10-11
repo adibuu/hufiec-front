@@ -1,18 +1,26 @@
 import React from "react";
-import { Image, Stack, Heading, Box, Text } from "@chakra-ui/react";
+import { withRouter } from "react-router-dom";
+import { Image, Stack, Heading, Box, Text, Center } from "@chakra-ui/react";
+
+import BackButton from "../../BackButton";
 
 class FullArticle extends React.PureComponent {
   render() {
     return (
       <Stack spacing={{ base: 5, sm: 6, md: 7 }} align="center" mb="2rem">
-        <Text
+        <Stack
+          direction={["column", "column", "row"]}
+          spacing={["20px", "20px", "50px"]}
           mt="6rem"
-          fontSize={{ base: "md", sm: "md", md: "xl" }}
-          opacity="0.7"
         >
-          Opublikowano: {this.props.date}, {this.props.readingTime} min.
-          czytania
-        </Text>
+          <Center>
+            <BackButton size="sm" width="100px" onClickBack={this.goBack} />
+          </Center>
+          <Text fontSize={{ base: "md", sm: "md", md: "xl" }} opacity="0.7">
+            Opublikowano: {this.props.date}, {this.props.readingTime} min.
+            czytania
+          </Text>
+        </Stack>
         <Heading
           as="h1"
           size="xl"
@@ -43,4 +51,4 @@ class FullArticle extends React.PureComponent {
   }
 }
 
-export default FullArticle;
+export default withRouter(FullArticle);
