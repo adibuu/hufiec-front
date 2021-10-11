@@ -15,6 +15,7 @@ export const fetchArticle = (id) => {
           imageURL: articleData.imageURL,
           filesURL: articleData.filesURL,
           date: articleData.expireAt,
+          readingTime: articleData.readingTime,
         })
       );
       dispatch(uiActions.setLoading(false));

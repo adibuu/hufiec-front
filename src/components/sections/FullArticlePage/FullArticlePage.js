@@ -35,7 +35,7 @@ const FullArticlePage = (props) => {
     <React.Fragment>
       <FullArticle
         ref={componentRef}
-        readTime={article.readTime || "0"}
+        readingTime={article.readingTime}
         date={article.date.split("T")[0]}
         title={article.title}
         image={article.imageURL}
