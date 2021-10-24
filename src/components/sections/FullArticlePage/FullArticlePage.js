@@ -11,6 +11,7 @@ import FullArticle from "./FullArticle";
 import Share from "./Share";
 import BackButton from "../../BackButton";
 import { fetchArticle } from "../../../store/actions/articleActions";
+import { defaultArticleImage } from "../../../config/defaultData";
 
 const FullArticlePage = (props) => {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ const FullArticlePage = (props) => {
         readingTime={article.readingTime}
         date={article.date.split("T")[0]}
         title={article.title}
-        image={article.imageURL}
+        image={article.imageURL || defaultArticleImage}
         content={HtmlParser(article.content)}
       />
       <Stack direction={["column", "row"]} spacing="24px">
