@@ -5,14 +5,16 @@ class FullArticle extends React.PureComponent {
   render() {
     return (
       <Stack spacing={{ base: 5, sm: 6, md: 7 }} align="center" mb="2rem">
-        <Text
+        <Stack
+          direction={["column", "column", "row"]}
+          spacing={["20px", "20px", "50px"]}
           mt="6rem"
-          fontSize={{ base: "md", sm: "md", md: "xl" }}
-          opacity="0.7"
         >
-          Opublikowano: {this.props.date}, {this.props.readingTime} min.
-          czytania
-        </Text>
+          <Text fontSize={{ base: "md", sm: "md", md: "xl" }} opacity="0.7">
+            Opublikowano: {this.props.date}, {this.props.readingTime} min.
+            czytania
+          </Text>
+        </Stack>
         <Heading
           as="h1"
           size="xl"

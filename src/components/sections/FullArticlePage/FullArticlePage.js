@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Spinner } from "@chakra-ui/react";
 import { useReactToPrint } from "react-to-print";
@@ -8,6 +9,7 @@ import { AiFillPrinter } from "react-icons/ai";
 
 import FullArticle from "./FullArticle";
 import Share from "./Share";
+import BackButton from "../../BackButton";
 import { fetchArticle } from "../../../store/actions/articleActions";
 
 const FullArticlePage = (props) => {
@@ -16,10 +18,15 @@ const FullArticlePage = (props) => {
   const loading = useSelector((state) => state.ui.loading);
   const { id } = props.match.params;
   const componentRef = useRef();
+  const history = useHistory();
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
+
+  const goBack = () => {
+    history.goBack();
+  };
 
   useEffect(() => {
     dispatch(fetchArticle(id));
@@ -42,9 +49,15 @@ const FullArticlePage = (props) => {
         content={HtmlParser(article.content)}
       />
       <Stack direction={["column", "row"]} spacing="24px">
+        <BackButton goBackClick={goBack} />
         <Share />
         <Spacer />
-        <Button onClick={handlePrint} leftIcon={<AiFillPrinter />} shadow="md">
+        <Button
+          onClick={handlePrint}
+          leftIcon={<AiFillPrinter />}
+          shadow="md"
+          colorScheme="whatsapp"
+        >
           Drukuj artykuł
         </Button>
       </Stack>
