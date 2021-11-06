@@ -3,13 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const articlesSlice = createSlice({
   name: "articles",
   initialState: {
-    documentsAmount: 0,
     results: [],
+    nextPage: false,
+    previousPage: false,
+    lastPageNumber: 0,
   },
   reducers: {
     setArticles(state, action) {
-      state.documentsAmount = action.payload.documentsAmount;
       state.results = action.payload.results;
+      state.nextPage = action.payload.nextPage;
+      state.previousPage = action.payload.previousPage;
+      state.lastPageNumber = action.payload.lastPageNumber;
     },
   },
 });

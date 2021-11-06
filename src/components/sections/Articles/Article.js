@@ -18,7 +18,7 @@ const Article = ({ articleLink, title, subtitle, image, date }) => (
     wrap="no-wrap"
     maxW="80vw"
     px={8}
-    mt={["6rem", "6rem", "8rem", "8rem"]}
+    mt={["3rem", "3rem", "4rem", "4rem"]}
   >
     <Stack
       spacing={4}

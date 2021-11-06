@@ -11,7 +11,6 @@ import FullArticlePage from "./components/sections/FullArticlePage/FullArticlePa
 import FullTeamPage from "./components/sections/FullTeamPage/FullTeamPage";
 import { useDispatch } from "react-redux";
 import { fetchContact } from "./store/actions/contactActions";
-import { fetchArticles } from "./store/actions/articlesActions";
 import { fetchInfoModal } from "./store/actions/infoModalActions";
 
 export default function App() {
@@ -25,10 +24,6 @@ export default function App() {
     dispatch(fetchContact());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(fetchArticles());
-  }, [dispatch]);
-
   return (
     <Layout>
       <BrowserRouter>
@@ -38,7 +33,7 @@ export default function App() {
           <Route path="/dokumenty" component={Documents} />
           <Route path="/galeria" component={Gallery} />
           <Route path="/kontakt" component={Contact} />
-          <Route exact path="/aktualnosci" component={Articles} />
+          <Route exact path="/aktualnosci/:pageNumber" component={Articles} />
           <Route exact path="/druzyny" component={Teams} />
           <Route path="/" component={Articles} />
         </Switch>
