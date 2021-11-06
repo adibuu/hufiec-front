@@ -57,7 +57,14 @@ const FullArticlePage = (props) => {
           onClick={handlePrint}
           leftIcon={<AiFillPrinter />}
           shadow="md"
-          colorScheme="whatsapp"
+          variant="outline"
+          color="primary.800"
+          borderColor="primary.800"
+          _hover={{
+            bgColor: "primary.700",
+            color: "white",
+            borderColor: "primary.700",
+          }}
         >
           Drukuj artykuł
         </Button>

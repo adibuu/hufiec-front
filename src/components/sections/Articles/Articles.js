@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-import { Spinner, Button, useRadioGroup, HStack } from "@chakra-ui/react";
+import {
+  Spinner,
+  Button,
+  useRadioGroup,
+  HStack,
+  Stack,
+  Text,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import HtmlParser from "html-react-parser";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import Article from "./Article";
 import { fetchArticles } from "../../../store/actions/articlesActions";
@@ -26,12 +35,12 @@ const Articles = (props) => {
   const [currentPage, setCurrentPage] = useState(
     pageNumber ? Number.parseInt(pageNumber) : 1
   );
-  const [limitArticlesPerPage, setLimitArticlesPerPage] = useState(1);
+  const [limitArticlesPerPage, setLimitArticlesPerPage] = useState(5);
   const history = useHistory();
-  const limitPerPageOption = [5, 10, 15];
+  const limitPerPageOption = ["5", "10", "15"];
   const { getRootProps, getRadioProps } = useRadioGroup({
-    name: "limitPerPageOption",
-    defaultValue: 5,
+    name: "limitPerPageOptions",
+    defaultValue: limitPerPageOption[0],
     onChange: (value) => {
       setLimitArticlesPerPage(value);
       setCurrentPage(1);
@@ -75,7 +84,19 @@ const Articles = (props) => {
 
   if (previousPage) {
     previousPageButton = (
-      <Button onClick={() => setCurrentPage(currentPage - 1)}>
+      <Button
+        onClick={() => setCurrentPage(currentPage - 1)}
+        color="primary.800"
+        borderColor="primary.800"
+        _hover={{
+          bgColor: "primary.700",
+          color: "white",
+          borderColor: "primary.700",
+        }}
+        variant="outline"
+        shadow="sm"
+        leftIcon={<FaChevronLeft />}
+      >
         Poprzednia strona
       </Button>
     );
@@ -83,32 +104,51 @@ const Articles = (props) => {
 
   if (nextPage) {
     nextPageButton = (
-      <Button onClick={() => setCurrentPage(currentPage + 1)}>
+      <Button
+        onClick={() => setCurrentPage(currentPage + 1)}
+        color="primary.800"
+        borderColor="primary.800"
+        _hover={{
+          bgColor: "primary.700",
+          color: "white",
+          borderColor: "primary.700",
+        }}
+        variant="outline"
+        shadow="sm"
+        rightIcon={<FaChevronRight />}
+      >
         Następna strona
       </Button>
     );
   }
 
   const navButtons = (
-    <HStack spacing={10} p={50}>
+    <Stack direction={["column", "row"]} spacing={5} p={50}>
       {previousPageButton}
       {nextPageButton}
-    </HStack>
+    </Stack>
   );
 
   return (
     <>
       {modal.show ? <InfoModal /> : null}
-      <HStack {...group} mt={"7rem"}>
-        {limitPerPageOption.map((value) => {
-          const radio = getRadioProps({ value });
-          return (
-            <RadioCard key={value} {...radio}>
+      <SimpleGrid columns={{ sm: 1, md: 2 }} mt={["5rem", "7rem"]}>
+        <Text
+          fontWeight="bold"
+          color={"primary.900"}
+          fontSize={["md", "lg"]}
+          m={"auto"}
+        >
+          Wybierz ilość artykułów na stronie:
+        </Text>
+        <HStack {...group} m={"auto"} ml={["auto", "5"]} mt={["3", "0"]}>
+          {limitPerPageOption.map((value) => (
+            <RadioCard key={value} {...getRadioProps({ value })}>
               {value}
             </RadioCard>
-          );
-        })}
-      </HStack>
+          ))}
+        </HStack>
+      </SimpleGrid>
       {loading ? (
         <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
       ) : (
