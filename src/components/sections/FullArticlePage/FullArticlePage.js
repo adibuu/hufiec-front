@@ -17,6 +17,7 @@ const FullArticlePage = (props) => {
   const dispatch = useDispatch();
   const article = useSelector((state) => state.article);
   const loading = useSelector((state) => state.ui.loading);
+  const error = useSelector((state) => state.ui.error);
   const { id } = props.match.params;
   const componentRef = useRef();
   const history = useHistory();
@@ -37,39 +38,44 @@ const FullArticlePage = (props) => {
     window.scrollTo(0, 0);
   });
 
-  return loading ? (
-    <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
-  ) : (
-    <React.Fragment>
-      <FullArticle
-        ref={componentRef}
-        readingTime={article.readingTime}
-        date={article.date.split("T")[0]}
-        title={article.title}
-        image={article.imageURL || defaultArticleImage}
-        content={HtmlParser(article.content)}
-      />
-      <Stack direction={["column", "row"]} spacing="24px">
-        <BackButton goBackClick={goBack} />
-        <Share />
-        <Spacer />
-        <Button
-          onClick={handlePrint}
-          leftIcon={<AiFillPrinter />}
-          shadow="md"
-          variant="outline"
-          color="primary.800"
-          borderColor="primary.800"
-          _hover={{
-            bgColor: "primary.700",
-            color: "white",
-            borderColor: "primary.700",
-          }}
-        >
-          Drukuj artykuł
-        </Button>
-      </Stack>
-    </React.Fragment>
+  return (
+    <>
+      {loading && (
+        <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
+      )}
+      {!error && !loading && (
+        <React.Fragment>
+          <FullArticle
+            ref={componentRef}
+            readingTime={article.readingTime}
+            date={article.date.split("T")[0]}
+            title={article.title}
+            image={article.imageURL || defaultArticleImage}
+            content={HtmlParser(article.content)}
+          />
+          <Stack direction={["column", "row"]} spacing="24px">
+            <BackButton goBackClick={goBack} />
+            <Share />
+            <Spacer />
+            <Button
+              onClick={handlePrint}
+              leftIcon={<AiFillPrinter />}
+              shadow="md"
+              variant="outline"
+              color="primary.800"
+              borderColor="primary.800"
+              _hover={{
+                bgColor: "primary.700",
+                color: "white",
+                borderColor: "primary.700",
+              }}
+            >
+              Drukuj artykuł
+            </Button>
+          </Stack>
+        </React.Fragment>
+      )}
+    </>
   );
 };
 

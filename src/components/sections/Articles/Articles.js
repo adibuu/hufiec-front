@@ -31,6 +31,7 @@ const Articles = (props) => {
   const previousPage = useSelector((state) => state.articles.previousPage);
   const lastPageNumber = useSelector((state) => state.articles.lastPageNumber);
   const loading = useSelector((state) => state.ui.loading);
+  const error = useSelector((state) => state.ui.error);
   const modal = useSelector((state) => state.infoModal);
   const [currentPage, setCurrentPage] = useState(
     pageNumber ? Number.parseInt(pageNumber) : 1
@@ -64,16 +65,39 @@ const Articles = (props) => {
     window.scrollTo(0, 0);
   });
 
-  const articlesToShow = articles.map((a) => (
-    <Article
-      key={a._id}
-      articleLink={`/aktualnosci/artykul/${a._id}`}
-      title={a.title}
-      subtitle={HtmlParser(a.preview)}
-      image={a.imageURL || defaultArticleImage}
-      date={a.expireAt.split("T")[0]}
-    />
-  ));
+  const articlesToShow = (
+    <>
+      {!error && (
+        <SimpleGrid columns={{ sm: 1, md: 2 }} mt={["5rem", "7rem"]}>
+          <Text
+            fontWeight="bold"
+            color={"primary.900"}
+            fontSize={["md", "lg"]}
+            m={"auto"}
+          >
+            Wybierz ilość artykułów na stronie:
+          </Text>
+          <HStack {...group} m={"auto"} ml={["auto", "5"]} mt={["3", "0"]}>
+            {limitPerPageOption.map((value) => (
+              <RadioCard key={value} {...getRadioProps({ value })}>
+                {value}
+              </RadioCard>
+            ))}
+          </HStack>
+        </SimpleGrid>
+      )}
+      {articles.map((a) => (
+        <Article
+          key={a._id}
+          articleLink={`/aktualnosci/artykul/${a._id}`}
+          title={a.title}
+          subtitle={HtmlParser(a.preview)}
+          image={a.imageURL || defaultArticleImage}
+          date={a.expireAt.split("T")[0]}
+        />
+      ))}
+    </>
+  );
 
   if (!currentPage <= lastPageNumber && !currentPage > 0) {
     setCurrentPage(1);
@@ -132,23 +156,6 @@ const Articles = (props) => {
   return (
     <>
       {modal.show ? <InfoModal /> : null}
-      <SimpleGrid columns={{ sm: 1, md: 2 }} mt={["5rem", "7rem"]}>
-        <Text
-          fontWeight="bold"
-          color={"primary.900"}
-          fontSize={["md", "lg"]}
-          m={"auto"}
-        >
-          Wybierz ilość artykułów na stronie:
-        </Text>
-        <HStack {...group} m={"auto"} ml={["auto", "5"]} mt={["3", "0"]}>
-          {limitPerPageOption.map((value) => (
-            <RadioCard key={value} {...getRadioProps({ value })}>
-              {value}
-            </RadioCard>
-          ))}
-        </HStack>
-      </SimpleGrid>
       {loading ? (
         <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
       ) : (

@@ -13,6 +13,7 @@ const FullTeamPage = (props) => {
   const dispatch = useDispatch();
   const team = useSelector((state) => state.team);
   const loading = useSelector((state) => state.ui.loading);
+  const error = useSelector((state) => state.ui.error);
   const { id } = props.match.params;
 
   useEffect(() => {
@@ -23,66 +24,71 @@ const FullTeamPage = (props) => {
     window.scrollTo(0, 0);
   }, []);
 
-  return loading ? (
-    <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
-  ) : (
-    <React.Fragment>
-      <FirstSection title={team.name} image={team.photoURL} />
-      <Box
-        w={{ base: "80%", sm: "70%", md: "65%" }}
-        mt="3rem"
-        mb="3rem"
-        textAlign="justify"
-        fontSize="lg"
-      >
-        {HtmlParser(team.description)}
-      </Box>
-      <Flex
-        p={20}
-        mt="2rem"
-        mb="2rem"
-        w="auto"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <SimpleGrid
-          columns={{ base: 1, md: 4, lg: 4 }}
-          spacing={20}
-          px={{ base: 4, lg: 16, xl: 24 }}
-          py={20}
-          mx="auto"
-          shadow="dark-lg"
-        >
-          <ContactData title="TELEFON" icon={<FaPhone />}>
-            {team.contact.phone}
-          </ContactData>
-          <ContactData title="EMAIL" icon={<FaEnvelope />}>
-            <MailTo
-              label={team.contact.email}
-              mailto={"mailto:" + team.contact.email}
-            />
-          </ContactData>
-          <ContactData title="FACEBOOK" icon={<FaFacebook />}>
-            <Link
-              href={team.contact.facebookURL}
-              isExternal
-              style={{ textDecoration: "none" }}
+  return (
+    <>
+      {loading && (
+        <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
+      )}
+      {!error && !loading && (
+        <React.Fragment>
+          <FirstSection title={team.name} image={team.photoURL} />
+          <Box
+            w={{ base: "80%", sm: "70%", md: "65%" }}
+            mt="3rem"
+            mb="3rem"
+            textAlign="justify"
+            fontSize="lg"
+          >
+            {HtmlParser(team.description)}
+          </Box>
+          <Flex
+            p={20}
+            mt="2rem"
+            mb="2rem"
+            w="auto"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <SimpleGrid
+              columns={{ base: 1, md: 4, lg: 4 }}
+              spacing={20}
+              px={{ base: 4, lg: 16, xl: 24 }}
+              py={20}
+              mx="auto"
+              shadow="dark-lg"
             >
-              {team.name}
-            </Link>
-          </ContactData>
-          <ContactData title="INSTAGRAM" icon={<FaInstagram />}>
-            <Link
-              href={team.contact.instagramURL}
-              isExternal
-              style={{ textDecoration: "none" }}
-            >
-              {team.name}
-            </Link>
-          </ContactData>
-        </SimpleGrid>
-      </Flex>
-    </React.Fragment>
+              <ContactData title="TELEFON" icon={<FaPhone />}>
+                {team.contact.phone}
+              </ContactData>
+              <ContactData title="EMAIL" icon={<FaEnvelope />}>
+                <MailTo
+                  label={team.contact.email}
+                  mailto={"mailto:" + team.contact.email}
+                />
+              </ContactData>
+              <ContactData title="FACEBOOK" icon={<FaFacebook />}>
+                <Link
+                  href={team.contact.facebookURL}
+                  isExternal
+                  style={{ textDecoration: "none" }}
+                >
+                  {team.name}
+                </Link>
+              </ContactData>
+              <ContactData title="INSTAGRAM" icon={<FaInstagram />}>
+                <Link
+                  href={team.contact.instagramURL}
+                  isExternal
+                  style={{ textDecoration: "none" }}
+                >
+                  {team.name}
+                </Link>
+              </ContactData>
+            </SimpleGrid>
+          </Flex>
+        </React.Fragment>
+      )}
+    </>
   );
 };
 
