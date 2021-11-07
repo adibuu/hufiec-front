@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Text,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -23,10 +24,16 @@ const InfoModal = () => {
       }
       isOpen={modal.show}
       isCentered
+      size="xl"
+      motionPreset="slideInBottom"
     >
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>INFORMACJA</ModalHeader>
+        <ModalHeader>
+          <Text fontSize="xl" color="primary.900" fontWeight="bold">
+            INFORMACJA
+          </Text>
+        </ModalHeader>
         <ModalBody>{HtmlParser(modal.content)}</ModalBody>
         <ModalFooter>
           <Button
@@ -35,6 +42,13 @@ const InfoModal = () => {
                 infoModalActions.setInfoModal({ show: false, content: "" })
               )
             }
+            _hover={{
+              bgColor: "primary.600",
+              color: "white",
+            }}
+            bgColor="primary.900"
+            color="white"
+            shadow="sm"
           >
             Zamknij
           </Button>

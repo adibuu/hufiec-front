@@ -23,7 +23,8 @@ export const fetchTeam = (id) => {
       );
       dispatch(uiActions.setLoading(false));
     } catch (error) {
-      console.log(error);
+      dispatch(uiActions.setLoading(false));
+      dispatch(uiActions.setError(true));
     }
   };
 };

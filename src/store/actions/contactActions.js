@@ -22,7 +22,8 @@ export const fetchContact = () => {
         })
       );
     } catch (error) {
-      console.log(error);
+      dispatch(uiActions.setLoading(false));
+      dispatch(uiActions.setError(true));
     }
   };
 };

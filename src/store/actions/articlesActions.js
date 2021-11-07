@@ -20,7 +20,8 @@ export const fetchArticles = (page, limit) => {
       );
       dispatch(uiActions.setLoading(false));
     } catch (error) {
-      console.log(error);
+      dispatch(uiActions.setLoading(false));
+      dispatch(uiActions.setError(true));
     }
   };
 };
