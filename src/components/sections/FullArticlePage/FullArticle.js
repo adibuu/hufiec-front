@@ -1,6 +1,5 @@
 import React from "react";
 import { Image, Stack, Heading, Box, Text } from "@chakra-ui/react";
-
 class FullArticle extends React.PureComponent {
   render() {
     return (

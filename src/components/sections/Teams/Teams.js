@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 import { Box, Spinner } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
+import Zoom from "react-reveal/Zoom";
 
 import Team from "./Team";
 import { fetchTeams } from "../../../store/actions/teamsActions";
@@ -20,14 +21,16 @@ const Teams = () => {
 
   const teamsToShow = teams.map((t) => (
     <Fragment key={t._id}>
-      <Team name={t.name} image={t.photoURL} teamLink={"/druzyny/" + t._id} />
-      <Box
-        rounded="md"
-        backgroundColor="primary.800"
-        w="60vw"
-        h="5px"
-        shadow="2xl"
-      />
+      <Zoom>
+        <Team name={t.name} image={t.photoURL} teamLink={"/druzyny/" + t._id} />
+        <Box
+          rounded="md"
+          backgroundColor="primary.800"
+          w="60vw"
+          h="5px"
+          shadow="2xl"
+        />
+      </Zoom>
     </Fragment>
   ));
 

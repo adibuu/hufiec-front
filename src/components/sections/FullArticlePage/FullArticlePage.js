@@ -6,6 +6,7 @@ import { useReactToPrint } from "react-to-print";
 import HtmlParser from "html-react-parser";
 import { Button, Stack, Spacer } from "@chakra-ui/react";
 import { AiFillPrinter } from "react-icons/ai";
+import Fade from "react-reveal/Fade";
 
 import FullArticle from "./FullArticle";
 import Share from "./Share";
@@ -44,7 +45,7 @@ const FullArticlePage = (props) => {
         <Spinner size="xl" color="primary.800" mt="25rem" mb="30rem" />
       )}
       {!error && !loading && (
-        <React.Fragment>
+        <Fade>
           <FullArticle
             ref={componentRef}
             readingTime={article.readingTime}
@@ -73,7 +74,7 @@ const FullArticlePage = (props) => {
               Drukuj artykuł
             </Button>
           </Stack>
-        </React.Fragment>
+        </Fade>
       )}
     </>
   );
