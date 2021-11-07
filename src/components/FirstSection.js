@@ -14,7 +14,7 @@ const FirstSection = ({ title, image }) => (
     opacity="0.9"
   >
     <VStack
-      w={"full"}
+      w={"100vw"}
       justify={"center"}
       px={{ base: 4, md: 8 }}
       bgGradient={"linear(to-r, blackAlpha.600, transparent)"}

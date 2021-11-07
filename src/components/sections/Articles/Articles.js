@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import HtmlParser from "html-react-parser";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Fade from "react-reveal/Fade";
 
 import Article from "./Article";
 import { fetchArticles } from "../../../store/actions/articlesActions";
@@ -68,23 +69,25 @@ const Articles = (props) => {
   const articlesToShow = (
     <>
       {!error && (
-        <SimpleGrid columns={{ sm: 1, md: 2 }} mt={["5rem", "7rem"]}>
-          <Text
-            fontWeight="bold"
-            color={"primary.900"}
-            fontSize={["md", "lg"]}
-            m={"auto"}
-          >
-            Wybierz ilość artykułów na stronie:
-          </Text>
-          <HStack {...group} m={"auto"} ml={["auto", "5"]} mt={["3", "0"]}>
-            {limitPerPageOption.map((value) => (
-              <RadioCard key={value} {...getRadioProps({ value })}>
-                {value}
-              </RadioCard>
-            ))}
-          </HStack>
-        </SimpleGrid>
+        <Fade>
+          <SimpleGrid columns={{ sm: 1, md: 2 }} mt={["5rem", "7rem"]}>
+            <Text
+              fontWeight="bold"
+              color={"primary.900"}
+              fontSize={["md", "lg"]}
+              m={"auto"}
+            >
+              Wybierz ilość artykułów na stronie:
+            </Text>
+            <HStack {...group} m={"auto"} ml={["auto", "5"]} mt={["3", "0"]}>
+              {limitPerPageOption.map((value) => (
+                <RadioCard key={value} {...getRadioProps({ value })}>
+                  {value}
+                </RadioCard>
+              ))}
+            </HStack>
+          </SimpleGrid>
+        </Fade>
       )}
       {articles.map((a) => (
         <Article
@@ -147,10 +150,12 @@ const Articles = (props) => {
   }
 
   const navButtons = (
-    <Stack direction={["column", "row"]} spacing={5} p={50}>
-      {previousPageButton}
-      {nextPageButton}
-    </Stack>
+    <Fade>
+      <Stack direction={["column", "row"]} spacing={5} p={50}>
+        {previousPageButton}
+        {nextPageButton}
+      </Stack>
+    </Fade>
   );
 
   return (

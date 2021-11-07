@@ -17,7 +17,8 @@ const Team = ({ name, image, teamLink }) => (
     backgroundSize={"cover"}
     backgroundPosition={"center center"}
     opacity="0.9"
-    m={["5rem", "5rem", "5rem", "6rem"]}
+    mt={["5rem", "5rem", "5rem", "6rem"]}
+    mb={["5rem", "5rem", "5rem", "6rem"]}
     shadow="2xl"
     rounded="1rem"
     transform="scale(1.0)"

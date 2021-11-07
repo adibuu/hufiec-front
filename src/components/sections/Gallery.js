@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
+import Slide from "react-reveal/Slide";
 
 import FlexTextButton from "../FlexTextButton";
 import FlexImage from "../FlexImage";
@@ -33,15 +34,19 @@ const Gallery = () => {
           ]}
           p="2rem"
         >
-          <FlexImage
-            alt="Biwak"
-            image="https://www.tapeciarnia.pl/tapety/normalne/128434_jezioro_biwak_promienie.jpg"
-          />
-          <FlexTextButton
-            text="Nasza galeria jest dostępna wyłącznie dla zalogowanych posiadaczy kont e-ZHP Office365."
-            buttonText="PRZEJDŹ DO GALERII"
-            link={galleryURL}
-          />
+          <Slide left>
+            <FlexImage
+              alt="Biwak"
+              image="https://www.tapeciarnia.pl/tapety/normalne/128434_jezioro_biwak_promienie.jpg"
+            />
+          </Slide>
+          <Slide right>
+            <FlexTextButton
+              text="Nasza galeria jest dostępna wyłącznie dla zalogowanych posiadaczy kont e-ZHP Office365."
+              buttonText="PRZEJDŹ DO GALERII"
+              link={galleryURL}
+            />
+          </Slide>
         </SimpleGrid>
       )}
     </>
