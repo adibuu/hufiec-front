@@ -44,7 +44,7 @@ const Documents = () => {
           <Slide right>
             <FlexImage
               alt="Ognisko"
-              image="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+              image="https://cdn.pixabay.com/photo/2016/11/08/05/03/adventure-1807495_960_720.jpg"
             />
           </Slide>
         </SimpleGrid>

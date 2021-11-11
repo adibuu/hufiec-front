@@ -37,7 +37,7 @@ const Gallery = () => {
           <Slide left>
             <FlexImage
               alt="Biwak"
-              image="https://www.tapeciarnia.pl/tapety/normalne/128434_jezioro_biwak_promienie.jpg"
+              image="https://cdn.pixabay.com/photo/2017/07/21/19/47/heaven-2526905_960_720.jpg"
             />
           </Slide>
           <Slide right>

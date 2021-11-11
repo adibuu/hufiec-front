@@ -27,7 +27,7 @@ const Contact = () => {
           <Fade top>
             <FirstSection
               title="Jeżeli masz jakieś pytania, chętnie udzielimy na nie odpowiedzi"
-              image="https://images.pexels.com/photos/142497/pexels-photo-142497.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              image="https://cdn.pixabay.com/photo/2017/07/21/19/47/heaven-2526905_960_720.jpg"
             />
           </Fade>
           <Fade bottom>
