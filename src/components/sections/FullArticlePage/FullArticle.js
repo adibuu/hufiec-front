@@ -9,7 +9,11 @@ class FullArticle extends React.PureComponent {
           spacing={["20px", "20px", "50px"]}
           mt="6rem"
         >
-          <Text fontSize={{ base: "md", sm: "md", md: "xl" }} opacity="0.7">
+          <Text
+            as="p"
+            fontSize={{ base: "md", sm: "md", md: "xl" }}
+            opacity="0.7"
+          >
             Opublikowano: {this.props.date}, {this.props.readingTime} min.
             czytania
           </Text>
