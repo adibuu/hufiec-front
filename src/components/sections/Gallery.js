@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import Slide from "react-reveal/Slide";
+import Zoom from "react-reveal/Zoom";
 
 import FlexTextButton from "../FlexTextButton";
 import FlexImage from "../FlexImage";
@@ -34,19 +34,19 @@ const Gallery = () => {
           ]}
           p="2rem"
         >
-          <Slide left>
+          <Zoom bottom>
             <FlexImage
               alt="Biwak"
               image="https://cdn.pixabay.com/photo/2017/07/21/19/47/heaven-2526905_960_720.jpg"
             />
-          </Slide>
-          <Slide right>
+          </Zoom>
+          <Zoom top>
             <FlexTextButton
               text="Nasza galeria jest dostępna wyłącznie dla zalogowanych posiadaczy kont e-ZHP Office365."
               buttonText="PRZEJDŹ DO GALERII"
               link={galleryURL}
             />
-          </Slide>
+          </Zoom>
         </SimpleGrid>
       )}
     </>

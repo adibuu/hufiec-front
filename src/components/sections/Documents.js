@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { SimpleGrid, Spinner } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import Slide from "react-reveal/Slide";
+import Zoom from "react-reveal/Zoom";
 
 import FlexTextButton from "../FlexTextButton";
 import FlexImage from "../FlexImage";
@@ -34,19 +34,19 @@ const Documents = () => {
           ]}
           p="2rem"
         >
-          <Slide left>
+          <Zoom top>
             <FlexTextButton
               text="Strona z dokumentami dostępna jest wyłącznie dla zalogowanych posiadaczy kont e-ZHP Office365"
               buttonText="PRZEJDŹ DO DOKUMENTÓW"
               link={documentsURL}
             />
-          </Slide>
-          <Slide right>
+          </Zoom>
+          <Zoom bottom>
             <FlexImage
               alt="Ognisko"
               image="https://cdn.pixabay.com/photo/2016/11/08/05/03/adventure-1807495_960_720.jpg"
             />
-          </Slide>
+          </Zoom>
         </SimpleGrid>
       )}
     </>
